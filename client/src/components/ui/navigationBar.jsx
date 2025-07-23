@@ -21,8 +21,8 @@ function NavigationBar () {
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Economics</NavDropdown.Item>
               </NavDropdown>
-              <Link to={"/contact"}><Nav.Link href="#lin">Contact Us</Nav.Link></Link>
-              <Link to={"/community"}><Nav.Link href="#lin">Community</Nav.Link></Link>
+              <Link to={"/contact"}><Nav.Link>Contact Us</Nav.Link></Link>
+              <Link to={"/community"}><Nav.Link>Community</Nav.Link></Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

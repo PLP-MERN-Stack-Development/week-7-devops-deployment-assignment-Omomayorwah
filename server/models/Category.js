@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 
 const categorySchema = new mongoose.Schema({
@@ -8,4 +8,4 @@ const categorySchema = new mongoose.Schema({
     description: { type: String, required: true, maxlength: 500 }
 });
 
-module.exports = mongoose.model("User", categorySchema);
+export default mongoose.model("User", categorySchema);

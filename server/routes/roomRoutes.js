@@ -1,10 +1,9 @@
-const express = require("express");
-const router = express.Router();
-const { getRooms, createRoom } = require("../controllers/roomController");
+import express from "express";
+import { getRooms, createRoom } from "../controllers/roomController.js";
 
+const router = express.Router();
 
 router.get('/', getRooms);
 router.post('/', createRoom);
 
-
-module.exports = router
+export default router;

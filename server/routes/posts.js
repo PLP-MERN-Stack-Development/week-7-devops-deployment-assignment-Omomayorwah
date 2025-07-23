@@ -1,7 +1,7 @@
-const express = require("express");
-const { createPost, getMyPosts, getAllPosts, updatePost, deletePost } = require("../controllers/postController");
-const { protect } = require("../middleware/auth");
-const asyncHandler = require("../middleware/asyncHandler");
+import express from "express";
+import { createPost, getMyPosts, getAllPosts, updatePost, deletePost } from "../controllers/postController.js";
+import { protect } from "../middleware/auth.js";
+import asyncHandler from "../middleware/asyncHandler.js";
 const router = express.Router();
 
 router.post("/", protect, asyncHandler(createPost));
@@ -10,4 +10,4 @@ router.get("/all", protect, asyncHandler(getAllPosts));
 router.put("/:id", protect, asyncHandler(updatePost));
 router.delete("/:id", protect, asyncHandler(deletePost));
 
-module.exports = router;
+export default router;

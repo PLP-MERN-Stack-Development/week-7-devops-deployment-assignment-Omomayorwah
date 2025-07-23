@@ -1,10 +1,10 @@
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const User = require("../models/User");
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import User from "../models/User.js";
 
 
 // Signup Endpoint Logic
-exports.signup = async (req, res) => {
+export const signup = async (req, res) => {
     const { username, email, password } = req.body;
 
     // Check if user already exists by email or username
@@ -24,7 +24,7 @@ exports.signup = async (req, res) => {
 };
 
 // Login Endpoint Logic
-exports.login = async (req, res) => {
+export const login = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });

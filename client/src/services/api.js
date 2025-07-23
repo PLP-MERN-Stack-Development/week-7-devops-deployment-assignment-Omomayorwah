@@ -6,7 +6,7 @@ import { io } from "socket.io-client";
 // Create axios instance with base URL
 const BackendBaseUrl = "http://localhost:5000";
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://myblog-wmg7.onrender.com',
   headers: {
     'Content-Type': 'application/json',
   },

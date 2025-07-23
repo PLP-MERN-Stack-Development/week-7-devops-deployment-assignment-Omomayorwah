@@ -1,13 +1,13 @@
-const Category = require("../models/Category");
+import Category from "../models/Category.js";
 
 // POST /api/categories
-exports.createCategory = async (req, res)=> {
+export const createCategory = async (req, res)=> {
     const category = await Category.create({ ...req.body, owner: req.user.id});
     res.json(category);
 };
 
 // GET /api/categories
-exports.getAllCategories = async (req, res) => {
+export const getAllCategories = async (_req, res) => {
     const categories = await Category.find().populate("owner", "username name").sort({ createdAt: -1 });
     res.json(categories);
 };

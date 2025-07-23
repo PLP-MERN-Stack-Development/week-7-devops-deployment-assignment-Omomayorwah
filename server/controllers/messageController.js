@@ -1,8 +1,8 @@
-const Message = require("../models/Message");
+import Message from "../models/Message.js";
 
-exports.getRoomMessages = async (req, res)=> {
+export const getRoomMessages = async (req, res) => {
     const messages = await Message.find({ room: req.params.roomId })
         .populate('sender', 'username')
-        .sort({ createdAt: 1 })
+        .sort({ createdAt: 1 });
     res.json(messages);
 };

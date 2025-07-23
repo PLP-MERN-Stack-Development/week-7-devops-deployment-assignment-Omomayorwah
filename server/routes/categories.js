@@ -1,6 +1,6 @@
-const express = require("express");
-const { createCategory, getAllCategories } = require("../controllers/categoryController");
-const { protect, authorize } = require("../middleware/auth");
+import express from "express";
+import { createCategory, getAllCategories } from "../controllers/categoryController.js";
+import { protect } from "../middleware/auth.js";
 const router = express.Router();
 
 // POST /api/categories
@@ -8,4 +8,4 @@ router.post("/", protect, createCategory);
 // GET /api/categories
 router.get("/", protect, getAllCategories);
 
-module.exports = router;
+export default router;

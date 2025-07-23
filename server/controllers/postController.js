@@ -1,25 +1,25 @@
-const Post = require("../models/Post");
+import Post from "../models/Post.js";
 
 // POST /api/posts
-exports.createPost = async (req, res)=> {
+export const createPost = async (req, res)=> {
     const post = await Post.create({ ...req.body, owner: req.user.id});
     res.json(post);
 };
 
 // GET /api/posts/:id
-exports.getMyPosts = async (req, res) => {
+export const getMyPosts = async (req, res) => {
     const posts = await Post.find({ owner: req.user.id });
     res.json(posts);
 };
 
 // GET /api/posts
-exports.getAllPosts = async (req, res) => {
+export const getAllPosts = async (_req, res) => {
     const posts = await Post.find().populate("owner", "username slug").sort({ createdAt: -1 });
     res.json(posts);
 };
 
 // PUT /api/posts/:id
-exports.updatePost = async (req, res) => {
+export const updatePost = async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
         
@@ -43,7 +43,7 @@ exports.updatePost = async (req, res) => {
 };
 
 // DELETE /api/posts/:id
-exports.deletePost = async (req, res) => {
+export const deletePost = async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
         
